@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class PostsService {
   private posts: Post[] = [];
-  private postsUpdated = new Subject<Post[]>();
+  private postsUpdated = new Subject<Post[]>(); // Observable
 
   getPosts() {
     return [...this.posts]; // copies the items in array to another array
@@ -22,6 +22,6 @@ export class PostsService {
   addPost(title: string, content: string) {
     const post: Post = { title: title, content: content };
     this.posts.push(post);
-    this.postsUpdated.next([...this.posts]);
+    this.postsUpdated.next([...this.posts]); // emits the new posts to observable; //next(), error(), complete()
   }
 }

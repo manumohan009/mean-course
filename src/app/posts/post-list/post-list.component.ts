@@ -21,10 +21,11 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.posts = posts;
       });
   }
-  // the function receives the posts emitted by the Subject
+  // the function getPostUpdateListener() receives the posts emitted by the Subject
+  // stores the subscription in a variable to unsubscribe later
 
   ngOnDestroy() {
-    this.postSub.unsubscribe();
+    this.postSub.unsubscribe(); // to prevent memory leaks
   }
 
   // posts = [
