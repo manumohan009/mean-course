@@ -15,7 +15,7 @@ export class PostCreateComponent {
   onAddPost(form: NgForm) {
     const post: Post = {
       title: form.value.title,
-      content: form.value.cotent
+      content: form.value.content
     };
     this.postCreated.emit(post);
   }
