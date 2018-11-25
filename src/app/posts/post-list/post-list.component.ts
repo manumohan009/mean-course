@@ -1,5 +1,6 @@
 import { Post } from '../post.model';
 import { Component, Input } from '@angular/core';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-list',
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent {
+  constructor(public postService: PostsService) {}
   // posts = [
   //   { title: 'First Post', content: "This is the first post 's content " },
   //   { title: 'Second Post', content: "This is the second post 's content " },
