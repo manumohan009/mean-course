@@ -9,6 +9,7 @@ import { Subject } from 'rxjs';
 export class PostsService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>(); // Observable
+  // Subject notifies the change to the entire application
 
   getPosts() {
     return [...this.posts]; // copies the items in array to another array
@@ -22,6 +23,6 @@ export class PostsService {
   addPost(title: string, content: string) {
     const post: Post = { title: title, content: content };
     this.posts.push(post);
-    this.postsUpdated.next([...this.posts]); // emits the new posts to observable; //next(), error(), complete()
+    this.postsUpdated.next([...this.posts]); // Observer //next(), error(), complete()
   }
 }
